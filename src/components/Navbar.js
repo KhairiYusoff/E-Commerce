@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-
-
+import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const Container = styled.div`
 background-color: black;
@@ -69,13 +69,14 @@ const Navbar = () => {
                     </Language>
                     <SearchContainer>
                         <Input />
-
+                        <SearchIcon />
                     </SearchContainer>
                 </Left>
                 <Center><Logo>KHAIRI</Logo></Center>
                 <Right>
                     <MenuItems>REGISTER</MenuItems>
                     <MenuItems>SIGN-IN</MenuItems>
+                    <ShoppingCartIcon />
                 </Right>
             </Wrapper>
         </Container>
