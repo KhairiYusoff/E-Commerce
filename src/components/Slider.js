@@ -35,7 +35,8 @@ z-index: 2;
 const Wrapper = styled.div`
 height: 100%;
 display: flex;
-transform: translateX(-200vw);
+transform: translateX(${props => props.slideIndex * -100}vw);
+transition: all 1.5s ease;
 `
 
 const Slide = styled.div`
@@ -51,7 +52,7 @@ flex: 1;
 `
 
 const Image = styled.img`
-height: 80%;
+height: 90%;
 `
 
 const InfoContainer = styled.div`
@@ -82,43 +83,31 @@ const Slider = () => {
 
     const handleClick = (direction) => {
 
+        if (direction === "left") {
+            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
+        } else {
+            setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
+        }
+
     }
     return (
         <Container>
             <Arrow direction="left" onClick={() => handleClick("left")}>
                 <ArrowLeftIcon />
             </Arrow>
-            <Wrapper>
-                <Slide bg="#00ff0080">
-                    <ImageContainer>
-                        <Image src="https://images.unsplash.com/photo-1592840078849-627344f3bbf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" />
-                    </ImageContainer>
-                    <InfoContainer>
-                        <Title>BRANDS SALE</Title>
-                        <Description>8.8 - MALAYSIA #1 SUPER BRANDS SALE FESTIVAL</Description>
-                        <Button>SHOW NOW</Button>
-                    </InfoContainer>
-                </Slide>
-                <Slide bg="#0000ff80">
-                    <ImageContainer>
-                        <Image src="https://images.unsplash.com/photo-1592840078849-627344f3bbf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" />
-                    </ImageContainer>
-                    <InfoContainer>
-                        <Title>BRANDS SALE</Title>
-                        <Description>8.8 - MALAYSIA #1 SUPER BRANDS SALE FESTIVAL</Description>
-                        <Button>SHOW NOW</Button>
-                    </InfoContainer>
-                </Slide>
-                <Slide bg="#ff00ff80">
-                    <ImageContainer>
-                        <Image src="https://images.unsplash.com/photo-1592840078849-627344f3bbf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" />
-                    </ImageContainer>
-                    <InfoContainer>
-                        <Title>BRANDS SALE</Title>
-                        <Description>8.8 - MALAYSIA #1 SUPER BRANDS SALE FESTIVAL</Description>
-                        <Button>SHOW NOW</Button>
-                    </InfoContainer>
-                </Slide>
+            <Wrapper slideIndex={slideIndex}>
+                {sliderItems.map(item => (
+                    <Slide bg={item.bg}>
+                        <ImageContainer>
+                            <Image src={item.img} />
+                        </ImageContainer>
+                        <InfoContainer>
+                            <Title>{item.title}</Title>
+                            <Description>{item.description}</Description>
+                            <Button>SHOW NOW</Button>
+                        </InfoContainer>
+                    </Slide>
+                ))}
             </Wrapper>
             <Arrow direction="right" onClick={() => handleClick("right")}>
                 <ArrowRightIcon />

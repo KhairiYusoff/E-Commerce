@@ -1,4 +1,4 @@
-const sliderItems = [
+export const sliderItems = [
     {
         id: 1,
         img: "https://images.unsplash.com/photo-1576072446584-4955dfe17b86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
@@ -23,6 +23,5 @@ const sliderItems = [
         description: "8.8 - MALAYSIA #1 SUPER BRANDS SALE FESTIVAL",
         bg: "#ff00ff80"
     }
-]
+];
 
-export default sliderItems;
