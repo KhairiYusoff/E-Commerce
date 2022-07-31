@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { useState } from 'react';
+import { sliderItems } from "../data"
 
 const Container = styled.div`
 width: 100%;
