@@ -55,7 +55,7 @@ justify-content: flex-end;
 const MenuItems = styled.div`
 font-size: 14px;
 cursor: pointer;
-margin-left: 20px;
+margin: 15px;
 `
 
 

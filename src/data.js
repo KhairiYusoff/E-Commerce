@@ -29,18 +29,18 @@ export const categories = [
     {
         id: 1,
         img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        title: "Original"
+        title: "T-Shirt Original"
     },
 
     {
         id: 2,
-        img: "https://images.unsplash.com/photo-1591213954196-2d0ccb3f8d4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzR8fGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-        title: "Jacket"
+        img: "https://images.unsplash.com/photo-1629353689974-af4d5c70440f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGphY2tldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        title: "Men-Jacket"
     },
 
     {
         id: 3,
         img: "https://images.unsplash.com/photo-1565292334631-95d1dd9e2970?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fHdvbWVuJTIwamVhbnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-        title: "Cowgirl"
+        title: "Women-Jacket"
     }
 ];
