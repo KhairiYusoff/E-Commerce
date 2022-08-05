@@ -72,7 +72,7 @@ const Navbar = () => {
                         <SearchIcon />
                     </SearchContainer>
                 </Left>
-                <Center><Logo>KHAIRI</Logo></Center>
+                <Center><Logo>KHAIRI E-COMMERCE</Logo></Center>
                 <Right>
                     <MenuItems>REGISTER</MenuItems>
                     <MenuItems>SIGN-IN</MenuItems>
