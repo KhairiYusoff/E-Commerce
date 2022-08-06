@@ -5,7 +5,10 @@ import Product from './Product'
 
 const Container = styled.div`
 display: flex;
+align-items: center;
+justify-content: center;
 padding: 20px;
+flex-wrap: wrap;
 `
 const Products = () => {
     return (

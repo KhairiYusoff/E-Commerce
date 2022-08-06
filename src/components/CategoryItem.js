@@ -5,6 +5,7 @@ const Container = styled.div`
 flex: 1;
 margin: 3px;
 height: 70vh;
+margin-bottom: 6rem;
 `
 const Image = styled.img`
 width: 100%;
@@ -12,19 +13,19 @@ height: 100%;
 object-fit: cover;
 `
 const Info = styled.div`
-text-align: center;
-border: 1px solid;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+padding: 10px;
 `
 const Title = styled.h2`
 color: white;
 background-color: purple;
 margin-bottom: 20px;
-`
-const Button = styled.button`
-padding: 10px 20px;
-background-color: purple;
-color: white;
-cursor: pointer;
+width: 200px;
+border: 1px solid black;
+text-align: center;
 `
 
 const CategoryItem = ({ item }) => {
@@ -33,7 +34,6 @@ const CategoryItem = ({ item }) => {
             <Image src={item.img} />
             <Info>
                 <Title>{item.title}</Title>
-                <Button>SHOP NOW</Button>
             </Info>
         </Container>
     )
