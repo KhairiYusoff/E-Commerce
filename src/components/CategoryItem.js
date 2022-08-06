@@ -5,7 +5,6 @@ const Container = styled.div`
 flex: 1;
 margin: 3px;
 height: 70vh;
-position: relative;
 `
 const Image = styled.img`
 width: 100%;
@@ -13,10 +12,8 @@ height: 100%;
 object-fit: cover;
 `
 const Info = styled.div`
-display: block;
 text-align: center;
 border: 1px solid;
-
 `
 const Title = styled.h2`
 color: white;
