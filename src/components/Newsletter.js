@@ -8,16 +8,38 @@ background-color: #FCF8E8;
 display: flex;
 align-items: center;
 justify-content: center;
+flex-direction: column;
 `
 
-const Title = styled.h1``
-const Description = styled.div``
+const Title = styled.h1`
+font-size: 60px;
+`
+const Description = styled.div`
+font-size: 22px;
+font-weight: 300;
+margin-bottom: 20px;
+`
 
-const InputContainer = styled.div``
+const InputContainer = styled.div`
+height: 40px;
+width: 50%;
+background-color: white;
+display: flex;
+justify-content: space-between;
+border: 1px solid lightpink;
+`
 
-const Input = styled.div``
+const Input = styled.input`
+border: none;
+flex: 7;
+padding-left: 10px;
+`
 
-const Button = styled.button``
+const Button = styled.button`
+flex: 1;
+background-color: #ECB390;
+cursor: pointer;
+`
 
 const Newsletter = () => {
     return (
