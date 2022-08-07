@@ -5,7 +5,6 @@ export const sliderItems = [
         title: "BRANDS SALE",
         description: "8.8 - MALAYSIA #1 SUPER BRANDS SALE FESTIVAL",
         bg: "#00ff0080"
-
     },
 
     {
