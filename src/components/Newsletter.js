@@ -26,7 +26,7 @@ width: 50%;
 background-color: white;
 display: flex;
 justify-content: space-between;
-border: 1px solid lightpink;
+border: 1px solid;
 `
 
 const Input = styled.input`
@@ -37,8 +37,14 @@ padding-left: 10px;
 
 const Button = styled.button`
 flex: 1;
-background-color: #ECB390;
+background-color: white;
 cursor: pointer;
+&:hover{
+    background-color: darkturquoise;
+    color: white;
+    transition: ease-out 0.7s;
+    border: none;
+}
 `
 
 const Newsletter = () => {
