@@ -126,7 +126,7 @@ const Product = () => {
                                 <FilterTitle>Color</FilterTitle>
                                 <FilterColor color="black" />
                                 <FilterColor color="darkblue" />
-                                <FilterColor color="gray" />
+                                <FilterColor color="red" />
                             </Filter>
                             <Filter>
                                 <FilterTitle>Size</FilterTitle>
