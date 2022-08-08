@@ -4,6 +4,9 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import RoomIcon from '@material-ui/icons/Room';
+import PhoneIcon from '@material-ui/icons/Phone';
+import MailIcon from '@material-ui/icons/Mail';
 
 const Container = styled.div`
 display: flex;
@@ -37,6 +40,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-right: 20px;
+cursor: pointer;
 `
 
 const Center = styled.div`
@@ -55,7 +59,6 @@ display: flex;
 flex-wrap: wrap;
 `
 
-
 const ListItem = styled.li`
 width: 50%;
 `
@@ -63,6 +66,17 @@ width: 50%;
 const Right = styled.div`
 flex: 1;
 padding: 20px;
+`
+
+const ContactItem = styled.div`
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+`
+
+const Payment = styled.img`
+width: 10%;
+margin-right: 10px;
 `
 
 const Footer = () => {
@@ -101,9 +115,21 @@ const Footer = () => {
                         <ListItem>Order Tracking</ListItem>
                         <ListItem>Wishlist</ListItem>
                         <ListItem>Terms</ListItem>
+                        <ListItem>Shoes</ListItem>
                     </List>
                 </Center>
-                <Right></Right>
+                <Right>
+                    <Title>Contact</Title>
+                    <ContactItem><RoomIcon style={{ marginRight: "10px" }} />20, Taman Jurutera, 777000, Malaysia</ContactItem>
+                    <ContactItem><PhoneIcon style={{ marginRight: "10px" }} />+123 456 789</ContactItem>
+                    <ContactItem><MailIcon style={{ marginRight: "10px" }} />KhairiYusoff@KHAIRI.Inc</ContactItem>
+                    <Payment src="https://cdn-icons-png.flaticon.com/512/196/196543.png" />
+                    <Payment src="https://cdn-icons-png.flaticon.com/128/196/196578.png" />
+                    <Payment src="https://cdn-icons-png.flaticon.com/512/349/349228.png" />
+                    <Payment src="https://cdn-icons-png.flaticon.com/512/196/196565.png" />
+                    <Payment src="https://cdn-icons-png.flaticon.com/512/5968/5968279.png" />
+
+                </Right>
             </Container>
         </div>
     )
