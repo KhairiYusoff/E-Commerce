@@ -2,6 +2,7 @@ import React from 'react'
 import SendIcon from '@material-ui/icons/Send';
 import styled from 'styled-components';
 
+
 const Container = styled.div`
 height: 60vh;
 background-color: #FCF8E8;
@@ -48,6 +49,7 @@ cursor: pointer;
 `
 
 const Newsletter = () => {
+
     return (
         <div>
             <Container>

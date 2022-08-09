@@ -1,11 +1,19 @@
 
-import Product from "./pages/Product";
+
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 
 
 const App = () => {
   return (
+    <div>
+      <Register />
+      <Login />
 
-    <Product />
+    </div>
+
   )
 }
 export default App;
