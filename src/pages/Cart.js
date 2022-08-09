@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Annoucements from '../components/Annoucements'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import AddIcon from '@material-ui/icons/Add';
-import RemoveIcon from '@material-ui/icons/Remove';
+import AddIcon from '@material-ui/icons/Add'
+import RemoveIcon from '@material-ui/icons/Remove'
 
 const Container = styled.div``
 
@@ -13,7 +13,7 @@ padding: 20px;
 `
 
 const Title = styled.h1`
-font-weight: 300;
+font-weight: 600;
 text-align: center;
 `
 
@@ -123,7 +123,7 @@ height: 50vh;
 `
 
 const SummaryTitle = styled.h1`
-font-weight: 200;
+font-weight: 600;
 `
 
 const SummaryItem = styled.div`
