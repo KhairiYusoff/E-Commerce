@@ -1,16 +1,16 @@
 
 
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Cart from "./pages/Cart";
+
 
 
 
 const App = () => {
   return (
     <div>
-      <Register />
-      <Login />
+      <Cart />
+
 
     </div>
 
