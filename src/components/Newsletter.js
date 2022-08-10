@@ -1,6 +1,7 @@
 import React from 'react'
 import SendIcon from '@material-ui/icons/Send';
 import styled from 'styled-components';
+import { mobile } from '../responsive';
 
 
 const Container = styled.div`
@@ -19,6 +20,7 @@ const Description = styled.div`
 font-size: 22px;
 font-weight: 300;
 margin-bottom: 20px;
+${mobile({ textAlign: "center" })}
 `
 
 const InputContainer = styled.div`
@@ -28,6 +30,7 @@ background-color: white;
 display: flex;
 justify-content: space-between;
 border: 1px solid;
+${mobile({ width: "70%" })}
 `
 
 const Input = styled.input`
