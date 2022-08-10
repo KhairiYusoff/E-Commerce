@@ -6,6 +6,9 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 const Container = styled.div`
 background-color: black;
 color:white;
+@media only screen and (max-width:380px) {
+    display: none;
+}
 `;
 
 const Wrapper = styled.div`
