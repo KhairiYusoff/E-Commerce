@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import AddIcon from '@material-ui/icons/Add'
 import RemoveIcon from '@material-ui/icons/Remove'
+import { mobile } from '../responsive'
 
 const Container = styled.div``
 
@@ -33,7 +34,9 @@ background-color: ${props => props.type === 'filled' ? 'black' : 'transparent'};
 color: ${props => props.type === 'filled' && 'white'};
 `
 
-const TopTexts = styled.div``
+const TopTexts = styled.div`
+${mobile({ display: "none" })}
+`
 
 const TopText = styled.span`
 text-decoration: underline;
@@ -45,6 +48,7 @@ const Bottom = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
+${mobile({ flexDirection: "column" })}
 `
 const Info = styled.div`
 flex: 3;
@@ -53,6 +57,7 @@ flex: 3;
 const Product = styled.div`
 display: flex;
 justify-content: space-between;
+${mobile({ flexDirection: "column" })}
 `
 
 const ProductDetail = styled.div`
@@ -102,11 +107,13 @@ align-items: center;
 const ProductAmount = styled.div`
 font-style: 24px;
 margin: 5px;
+${mobile({ margin: "10px" })}
 `
 
 const ProductPrice = styled.div`
 font-size: 20px;
 font-weight: 200;
+${mobile({ margin: "10px" })}
 `
 
 const Hr = styled.hr`

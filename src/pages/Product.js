@@ -6,12 +6,14 @@ import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import AddIcon from '@material-ui/icons/Add'
 import RemoveIcon from '@material-ui/icons/Remove'
+import { mobile } from '../responsive'
 
 const Container = styled.div``
 
 const Wrapper = styled.div`
 display: flex;
 padding: 20px;
+${mobile({ flexDirection: "column" })}
 `
 
 const ImageContainer = styled.div`
@@ -20,11 +22,14 @@ flex: 1;
 
 const Image = styled.img`
 width: 100%;
+
+
 `
 
 const InfoContainer = styled.div`
 flex: 1;
 padding: 0 50px;
+
 `
 
 const Title = styled.h1``
@@ -80,6 +85,7 @@ const AmountContainer = styled.div`
 display: flex;
 align-items: center;
 font-weight: 700;
+${mobile({ margin: "10px" })}
 `
 
 const Amount = styled.span`
@@ -105,7 +111,7 @@ font-size:15px;
     color: white;
     transition: ease-out 0.7s;
 }
-`
+${mobile({ marginLeft: "10px" })}`
 
 const Product = () => {
     return (
