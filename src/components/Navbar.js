@@ -2,13 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { mobile } from '../responsive'
 
 const Container = styled.div`
 background-color: black;
 color:white;
-@media only screen and (max-width:380px) {
-    display: none;
-}
+${mobile({ height: "50px" })}
 `;
 
 const Wrapper = styled.div`
@@ -17,6 +16,7 @@ display:flex;
 justify-content:space-between;
 height: 70px;
 align-items: center;
+${mobile({ padding: "10px 0" })}
 `;
 
 const Left = styled.div`
@@ -27,6 +27,7 @@ align-items: center;
 const Language = styled.span`
 font-size: 14px;
 cursor: pointer;
+${mobile({ display: "none" })}
 `
 
 const SearchContainer = styled.div`
@@ -39,6 +40,7 @@ padding: 5px;
 
 const Input = styled.input`
 border: none;
+${mobile({ width: "50px" })}
 `
 const Center = styled.div`
 flex:1;
@@ -53,12 +55,14 @@ flex:1;
 display: flex;
 align-items: center;
 justify-content: flex-end;
+${mobile({ flex: 3, justifyContent: "center" })}
 `
 
 const MenuItems = styled.div`
 font-size: 14px;
 cursor: pointer;
 margin: 15px;
+${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `
 
 
@@ -71,11 +75,11 @@ const Navbar = () => {
                         EN
                     </Language>
                     <SearchContainer>
-                        <Input />
+                        <Input placeholder='search' />
                         <SearchIcon />
                     </SearchContainer>
                 </Left>
-                <Center><Logo>KHAIRI E-COMMERCE</Logo></Center>
+                <Center><Logo>KHAIRI</Logo></Center>
                 <Right>
                     <MenuItems>REGISTER</MenuItems>
                     <MenuItems>SIGN-IN</MenuItems>
