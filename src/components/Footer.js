@@ -7,11 +7,13 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import RoomIcon from '@material-ui/icons/Room';
 import PhoneIcon from '@material-ui/icons/Phone';
 import MailIcon from '@material-ui/icons/Mail';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
+${mobile({ flexDirection: "column" })}
 `
 
 const Left = styled.div`
@@ -46,6 +48,7 @@ cursor: pointer;
 const Center = styled.div`
 flex: 1;
 padding: 20px;
+${mobile({ display: "none" })}
 `
 
 const Title = styled.h3`

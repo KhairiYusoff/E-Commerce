@@ -5,10 +5,10 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { mobile } from '../responsive'
 
 const Container = styled.div`
-height: 60px;
+
 background-color: black;
 color:white;
-${mobile({ height: "50px" })}
+${mobile({ height: "70px", marginBottom: "20px" })}
 `;
 
 const Wrapper = styled.div`
@@ -24,6 +24,7 @@ const Left = styled.div`
 flex:1;
 display: flex;
 align-items: center;
+${mobile({ flex: 2 })}
 `
 const Language = styled.span`
 font-size: 14px;
@@ -46,17 +47,19 @@ ${mobile({ width: "50px" })}
 const Center = styled.div`
 flex:1;
 text-align: center;
+${mobile({ flex: 2 })}
 `
 
 const Logo = styled.h1`
 font-weight: bold;
+
 `
 const Right = styled.div`
 flex:1;
 display: flex;
 align-items: center;
 justify-content: flex-end;
-${mobile({ flex: 3, justifyContent: "center" })}
+${mobile({ flex: 2, justifyContent: "center" })}
 `
 
 const MenuItems = styled.div`
