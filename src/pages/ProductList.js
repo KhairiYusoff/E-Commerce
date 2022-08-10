@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import Products from '../components/Products'
+import { mobile } from '../responsive'
 
 const Container = styled.div``
 
@@ -19,6 +20,7 @@ justify-content: space-between;
 
 const Filter = styled.div`
 margin: 20px;
+${mobile({ width: "0 20px", display: "flex", flexDirection: "column" })}
 `
 
 const FilterText = styled.span`
