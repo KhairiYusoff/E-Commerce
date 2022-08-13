@@ -5,7 +5,6 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { mobile } from '../responsive'
 
 const Container = styled.div`
-
 background-color: black;
 color:white;
 ${mobile({ height: "70px", marginBottom: "20px" })}
@@ -15,7 +14,7 @@ const Wrapper = styled.div`
 padding: 10px 20px;
 display:flex;
 justify-content:space-between;
-height: 70px;
+height: 60px;
 align-items: center;
 ${mobile({ padding: "10px 0" })}
 `;
