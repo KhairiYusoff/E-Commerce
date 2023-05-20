@@ -1,141 +1,144 @@
-import React from 'react'
-import styled from 'styled-components'
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import RoomIcon from '@material-ui/icons/Room';
-import PhoneIcon from '@material-ui/icons/Phone';
-import MailIcon from '@material-ui/icons/Mail';
-import { mobile } from '../responsive';
+import {
+    Facebook,
+    Instagram,
+    MailOutline,
+    Phone,
+    Pinterest,
+    Room,
+    Twitter,
+} from "@material-ui/icons";
+import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-${mobile({ flexDirection: "column" })}
-`
+    display: flex;
+    ${mobile({ flexDirection: "column" })}
+  `;
 
 const Left = styled.div`
-flex: 1;
-display: flex;
-flex-direction: column;
-padding: 20px;
-`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  `;
 
-const Logo = styled.h1``
+const Logo = styled.h1``;
 
-const Description = styled.p`
-margin: 20px 0;
-
-`
+const Desc = styled.p`
+    margin: 20px 0px;
+  `;
 
 const SocialContainer = styled.div`
-display: flex;
-`
+    display: flex;
+  `;
 
 const SocialIcon = styled.div`
-width: 40px;
-height: 40px;
-border-radius: 50%;
-display: flex;
-justify-content: center;
-align-items: center;
-margin-right: 20px;
-cursor: pointer;
-`
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    background-color: #${(props) => props.color};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+  `;
 
 const Center = styled.div`
-flex: 1;
-padding: 20px;
-${mobile({ display: "none" })}
-`
+    flex: 1;
+    padding: 20px;
+    ${mobile({ display: "none" })}
+  `;
 
 const Title = styled.h3`
-margin-bottom: 20px;
-`
+    margin-bottom: 30px;
+  `;
+
 const List = styled.ul`
-margin: 0;
-padding: 0;
-list-style: none;
-display: flex;
-flex-wrap: wrap;
-`
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  `;
 
 const ListItem = styled.li`
-width: 50%;
-`
+    width: 50%;
+    margin-bottom: 10px;
+  `;
 
 const Right = styled.div`
-flex: 1;
-padding: 20px;
-`
+    flex: 1;
+    padding: 20px;
+    ${mobile({ backgroundColor: "#fff8f8" })}
+  
+  `;
 
 const ContactItem = styled.div`
-margin-bottom: 20px;
-display: flex;
-align-items: center;
-`
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  `;
 
 const Payment = styled.img`
-width: 10%;
-margin-right: 10px;
-`
+      width: 50%;
+  `;
 
 const Footer = () => {
     return (
-        <div>
-            <Container>
-                <Left>
-                    <Logo>KHAIRI.Inc</Logo>
-                    <Description>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde numquam corporis delectus eligendi. Magnam ex quod atque placeat delectus praesentium, in esse adipisci suscipit ipsa totam! Nostrum, ab modi, accusamus, voluptatem minus ut nihil qui eos deserunt dolorum nam! Velit?
-                    </Description>
-                    <SocialContainer>
-                        <SocialIcon>
-                            <FacebookIcon />
-                        </SocialIcon>
-                        <SocialIcon>
-                            <TwitterIcon />
-                        </SocialIcon>
-                        <SocialIcon>
-                            <LinkedInIcon />
-                        </SocialIcon>
-                        <SocialIcon>
-                            <GitHubIcon />
-                        </SocialIcon>
-                    </SocialContainer>
-                </Left>
-                <Center>
-                    <Title>Useful Links</Title>
-                    <List>
-                        <ListItem>Home</ListItem>
-                        <ListItem>Cart</ListItem>
-                        <ListItem>Man Fashion</ListItem>
-                        <ListItem>Woman Fashion</ListItem>
-                        <ListItem>Accessories</ListItem>
-                        <ListItem>My Account</ListItem>
-                        <ListItem>Order Tracking</ListItem>
-                        <ListItem>Wishlist</ListItem>
-                        <ListItem>Terms</ListItem>
-                        <ListItem>Shoes</ListItem>
-                    </List>
-                </Center>
-                <Right>
-                    <Title>Contact</Title>
-                    <ContactItem><RoomIcon style={{ marginRight: "10px" }} />20, Taman Jurutera, 777000, Malaysia</ContactItem>
-                    <ContactItem><PhoneIcon style={{ marginRight: "10px" }} />+123 456 789</ContactItem>
-                    <ContactItem><MailIcon style={{ marginRight: "10px" }} />KhairiYusoff@KHAIRI.Inc</ContactItem>
-                    <Payment src="https://cdn-icons-png.flaticon.com/512/196/196543.png" />
-                    <Payment src="https://cdn-icons-png.flaticon.com/128/196/196578.png" />
-                    <Payment src="https://cdn-icons-png.flaticon.com/512/349/349228.png" />
-                    <Payment src="https://cdn-icons-png.flaticon.com/512/196/196565.png" />
-                    <Payment src="https://cdn-icons-png.flaticon.com/512/5968/5968279.png" />
+        <Container>
+            <Left>
+                <Logo>LAMA.</Logo>
+                <Desc>
+                    There are many variations of passages of Lorem Ipsum available, but
+                    the majority have suffered alteration in some form, by injected
+                    humour, or randomised words which don’t look even slightly believable.
+                </Desc>
+                <SocialContainer>
+                    <SocialIcon color="3B5999">
+                        <Facebook />
+                    </SocialIcon>
+                    <SocialIcon color="E4405F">
+                        <Instagram />
+                    </SocialIcon>
+                    <SocialIcon color="55ACEE">
+                        <Twitter />
+                    </SocialIcon>
+                    <SocialIcon color="E60023">
+                        <Pinterest />
+                    </SocialIcon>
+                </SocialContainer>
+            </Left>
+            <Center>
+                <Title>Useful Links</Title>
+                <List>
+                    <ListItem>Home</ListItem>
+                    <ListItem>Cart</ListItem>
+                    <ListItem>Man Fashion</ListItem>
+                    <ListItem>Woman Fashion</ListItem>
+                    <ListItem>Accessories</ListItem>
+                    <ListItem>My Account</ListItem>
+                    <ListItem>Order Tracking</ListItem>
+                    <ListItem>Wishlist</ListItem>
+                    <ListItem>Wishlist</ListItem>
+                    <ListItem>Terms</ListItem>
+                </List>
+            </Center>
+            <Right>
+                <Title>Contact</Title>
+                <ContactItem>
+                    <Room style={{ marginRight: "10px" }} /> 622 Dixie Path , South Tobinchester 98336
+                </ContactItem>
+                <ContactItem>
+                    <Phone style={{ marginRight: "10px" }} /> +1 234 56 78
+                </ContactItem>
+                <ContactItem>
+                    <MailOutline style={{ marginRight: "10px" }} /> contact@lama.dev
+                </ContactItem>
+                <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
+            </Right>
+        </Container>
+    );
+};
 
-                </Right>
-            </Container>
-        </div>
-    )
-}
-
-export default Footer
+export default Footer;
