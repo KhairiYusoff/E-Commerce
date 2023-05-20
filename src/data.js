@@ -19,7 +19,7 @@ export const sliderItems = [
         id: 3,
         img: "https://images.unsplash.com/photo-1555529771-122e5d9f2341?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fHNob3BwaW5nJTIwb25saW5lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         title: "CHANEL IS AWESOME",
-        description: "8.8 - MALAYSIA #1 SUPER BRANDS SALE FESTIVAL",
+        description: "9.9 - MALAYSIA #1 SUPER BRANDS SALE FESTIVAL",
         bg: "#ff00ff80"
     }
 ];
