@@ -8,12 +8,12 @@ import {
     Route,
     Redirect,
 } from "react-router-dom";
-import UserList from "./pages/userList/UserList";
+import UserList from "./pages/userList/userList";
 import User from "./pages/user/User";
-import NewUser from "./pages/newUser/NewUser";
+import NewUser from "./pages/newUser/newUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
+import NewProduct from "./pages/newProduct/newProduct";
 import Login from "./pages/login/Login";
 import { useSelector } from "react-redux";
 
