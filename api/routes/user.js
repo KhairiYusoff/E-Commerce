@@ -7,6 +7,11 @@ const {
 
 const router = require("express").Router();
 
+router.post("/userPostTest1", (req, res) => {
+    const username = req.body.username
+    res.send(username)
+})
+
 //UPDATE
 router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
     if (req.body.password) {

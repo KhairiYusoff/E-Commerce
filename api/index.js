@@ -11,6 +11,8 @@ const orderRoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
 const cors = require("cors");
 
+mongoose.set('strictQuery', false); // Or true if you want to suppress the warning
+
 mongoose
     .connect(process.env.MONGO_URL)
     .then(() => console.log("DB Connection Successfull!"))
@@ -22,7 +24,6 @@ app.get("/api/test", (req, res) => {
     console.log("TEST");
     res.send("Success!")
 });
-
 
 app.use(cors());
 app.use(express.json());
