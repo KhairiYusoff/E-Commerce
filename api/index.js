@@ -18,6 +18,12 @@ mongoose
         console.log(err);
     });
 
+app.get("/api/test", (req, res) => {
+    console.log("TEST");
+    res.send("Success!")
+});
+
+
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute);
