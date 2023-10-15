@@ -7,9 +7,20 @@ const {
 
 const router = require("express").Router();
 
+router.get("/usertest", (req, res) => {
+    res.send("SUCCES")
+})
+
 router.post("/userPostTest1", (req, res) => {
     const username = req.body.username
+    console.log("Your username is:" + username)
     res.send(username)
+})
+
+router.post("/userPostTest2", (req, res) => {
+    const age = req.body.age
+    console.log("Your age is:" + age)
+    res.send(age)
 })
 
 //UPDATE
