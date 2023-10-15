@@ -7,9 +7,9 @@ const {
 
 const router = require("express").Router();
 
-router.get("/usertest", (req, res) => {
-    res.send("SUCCES")
-})
+// router.get("/usertest", (req, res) => {
+//     res.send("SUCCES")
+// })
 
 router.post("/userPostTest1", (req, res) => {
     const username = req.body.username
