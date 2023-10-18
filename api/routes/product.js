@@ -7,7 +7,7 @@ const {
 
 const router = require("express").Router();
 
-//CREATE
+//CREATE PRODUCT
 
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
     const newProduct = new Product(req.body);
@@ -20,7 +20,7 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
     }
 });
 
-//UPDATE
+//UPDATE PRODUCT
 router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
     try {
         const updatedProduct = await Product.findByIdAndUpdate(
@@ -36,7 +36,7 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
     }
 });
 
-//DELETE
+//DELETE PRODUCT
 router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
     try {
         await Product.findByIdAndDelete(req.params.id);
