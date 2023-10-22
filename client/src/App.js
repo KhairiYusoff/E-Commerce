@@ -4,6 +4,8 @@ import ProductList from "./pages/ProductList";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import Yes from "./pages/Yes";
+import Pay from "./pages/Pay";
 import {
   BrowserRouter as Router,
   Switch,
@@ -36,6 +38,12 @@ const App = () => {
         <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
         <Route path="/register">
           {user ? <Redirect to="/" /> : <Register />}
+        </Route>
+        <Route path="/pay">
+          <Pay />
+        </Route>
+        <Route path="/yes">
+          <Yes />
         </Route>
       </Switch>
     </Router>
