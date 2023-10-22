@@ -39,11 +39,11 @@ const Pay = () => {
             }}>
             <StripeCheckout
                 name="KhaiShop" // the pop-in header title
-                description="Payment $20" // the pop-in header subtitle
+                description="Payment $30" // the pop-in header subtitle
                 image="https://www.vidhub.co/assets/logos/vidhub-icon-2e5c629f64ced5598a56387d4e3d0c7c.png" // the pop-in header image (default none)
                 stripeKey={KEY}
                 token={onToken}
-                amount={2000}
+                amount={3000}
                 billingAddress
                 shippingAddress
 
