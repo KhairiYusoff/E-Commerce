@@ -5,6 +5,12 @@ const KEY = "pk_test_51LW00pLplrJ17jtVYzDY9T3I6Yba97b7bPWN64ZDowKQulVe6tPUIALtCN
 
 
 const Pay = () => {
+
+    const onToken = (token) => {
+        console.log(token)
+
+    }
+
     return (
         <div
             style={{
@@ -14,9 +20,15 @@ const Pay = () => {
                 justifyContent: "center"
             }}>
             <StripeCheckout
-                name="Three Comma Co." // the pop-in header title
-                description="Big Data Stuff" // the pop-in header subtitle
+                name="KhaiShop" // the pop-in header title
+                description="Payment $20" // the pop-in header subtitle
                 image="https://www.vidhub.co/assets/logos/vidhub-icon-2e5c629f64ced5598a56387d4e3d0c7c.png" // the pop-in header image (default none)
+                stripeKey={KEY}
+                token={onToken}
+                amount={2000}
+                billingAddress
+                shippingAddress
+
             >
                 <button
                     style={{
