@@ -1,4 +1,5 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 
 const KEY = "pk_test_51LW00pLplrJ17jtVYzDY9T3I6Yba97b7bPWN64ZDowKQulVe6tPUIALtCNR5d4Hd93l3fOOtr7E2UiPOqLwLdenq00sZtcp41V"
@@ -6,9 +7,26 @@ const KEY = "pk_test_51LW00pLplrJ17jtVYzDY9T3I6Yba97b7bPWN64ZDowKQulVe6tPUIALtCN
 
 const Pay = () => {
 
+    const [stripeToken, setStripeToken] = useState(null)
+
+    useEffect(() => {
+        const makePayment = async () => {
+            try {
+                const res = await axios.post("http://localhost:5000/api/checkout/payment", {
+                    tokenId: stripeToken.id,
+                    amount: 2000
+                })
+                console.log(res)
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        stripeToken && makePayment()
+    }, [stripeToken])
+
     const onToken = (token) => {
         console.log(token)
-
+        setStripeToken(token)
     }
 
     return (
