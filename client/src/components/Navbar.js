@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../redux/apiCalls";
+import { toast } from "react-toastify";
 
 const Container = styled.div`
   height: 60px;
@@ -76,6 +77,15 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     logoutUser(dispatch);
+    toast.success("You have been logged out.", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
   console.log(currentUser);
   return (

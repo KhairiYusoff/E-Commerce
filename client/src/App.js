@@ -14,6 +14,8 @@ import {
 } from "react-router-dom";
 import Success from "./pages/Success";
 import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -46,6 +48,7 @@ const App = () => {
           <Yes />
         </Route>
       </Switch>
+      <ToastContainer />
     </Router>
   );
 };
