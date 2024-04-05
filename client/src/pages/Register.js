@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { register } from "../redux/apiCalls";
+import { toast } from "react-toastify";
 
 const Container = styled.div`
   width: 100vw;
@@ -55,26 +59,58 @@ const Button = styled.button`
 `;
 
 const Register = () => {
-    return (
-        <Container>
-            <Wrapper>
-                <Title>CREATE AN ACCOUNT</Title>
-                <Form>
-                    <Input placeholder="name" />
-                    <Input placeholder="last name" />
-                    <Input placeholder="username" />
-                    <Input placeholder="email" />
-                    <Input placeholder="password" />
-                    <Input placeholder="confirm password" />
-                    <Agreement>
-                        By creating an account, I consent to the processing of my personal
-                        data in accordance with the <b>PRIVACY POLICY</b>
-                    </Agreement>
-                    <Button>CREATE</Button>
-                </Form>
-            </Wrapper>
-        </Container>
-    );
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    register(dispatch, { username, email, password });
+    toast.success("Your account is successfully created!", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  return (
+    <Container>
+      <Wrapper>
+        <Title>CREATE AN ACCOUNT</Title>
+        <Form onSubmit={handleRegister}>
+          <Input placeholder="name" />
+          <Input placeholder="last name" />
+          <Input
+            placeholder="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Input
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            placeholder="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Input placeholder="confirm password" type="password" />
+          <Agreement>
+            By creating an account, I consent to the processing of my personal
+            data in accordance with the <b>PRIVACY POLICY</b>
+          </Agreement>
+          <Button type="submit">CREATE</Button>
+        </Form>
+      </Wrapper>
+    </Container>
+  );
 };
 
 export default Register;

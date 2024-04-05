@@ -39,7 +39,7 @@ const App = () => {
         </Route>
         <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
         <Route path="/register">
-          {user ? <Redirect to="/" /> : <Register />}
+          {user ? <Redirect to="/login" /> : <Register />}
         </Route>
         <Route path="/pay">
           <Pay />
