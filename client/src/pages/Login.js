@@ -76,7 +76,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
 
-  const handleClick = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
     toast.success("Welcome to KhaiR.", {
@@ -103,7 +103,7 @@ const Login = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleClick} disabled={isFetching}>
+          <Button onClick={handleLogin} disabled={isFetching}>
             LOGIN
           </Button>
           {error && <Error>Something went wrong...</Error>}
