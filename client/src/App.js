@@ -37,9 +37,11 @@ const App = () => {
         <Route path="/success">
           <Success />
         </Route>
-        <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
+        <Route path="/login">
+          <Login />
+        </Route>
         <Route path="/register">
-          {user ? <Redirect to="/login" /> : <Register />}
+          <Register />
         </Route>
         <Route path="/pay">
           <Pay />

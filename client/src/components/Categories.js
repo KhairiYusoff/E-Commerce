@@ -8,17 +8,16 @@ const Container = styled.div`
   padding: 20px;
   justify-content: space-between;
   ${mobile({ padding: "0px", flexDirection: "column" })}
-
 `;
 
 const Categories = () => {
-    return (
-        <Container>
-            {categories.map((item) => (
-                <CategoryItem item={item} key={item.id} />
-            ))}
-        </Container>
-    );
+  return (
+    <Container>
+      {categories.map((item) => (
+        <CategoryItem item={item} key={item.id} />
+      ))}
+    </Container>
+  );
 };
 
 export default Categories;

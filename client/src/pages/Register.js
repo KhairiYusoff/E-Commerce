@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../redux/apiCalls";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Container = styled.div`
   width: 100vw;
@@ -63,6 +64,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -76,6 +78,7 @@ const Register = () => {
       draggable: true,
       progress: undefined,
     });
+    history.push("/login");
   };
 
   return (
