@@ -1,6 +1,6 @@
 # KhaiR E-Commerce App
 
-KhaiR is a modern e-commerce application built with React.js that offers a seamless shopping experience for fashion enthusiasts. Our app provides a wide range of stylish and high-quality clothing, including jeans, jackets, shirts, and shoes for men and women.
+KhaiR is a modern e-commerce application built with the MERN stack (MongoDB, Express.js, React.js, and Node.js) that offers a seamless shopping experience for fashion enthusiasts. Our app provides a wide range of stylish and high-quality clothing, including jeans, jackets, shirts, and shoes for men and women.
 
 ## Features
 
