@@ -53,16 +53,22 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 5px;
   ${mobile({ flexDirection: "column" })}
 `;
 
 const Info = styled.div`
   flex: 3;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
 `;
 
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  border: 0.5px solid lightgray;
+  padding: 10px;
   ${mobile({ flexDirection: "column" })}
 `;
 
