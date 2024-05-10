@@ -7,7 +7,7 @@ const ScrollToTopButton = styled.button`
   right: 20px;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 5px;
   background-color: #333;
   color: #fff;
   display: flex;
@@ -16,6 +16,7 @@ const ScrollToTopButton = styled.button`
   cursor: pointer;
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   transition: opacity 0.3s ease-in-out;
+  z-index: 9999;
 `;
 
 const ScrollToTop = () => {

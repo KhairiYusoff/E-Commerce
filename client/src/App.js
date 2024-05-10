@@ -16,11 +16,13 @@ import Success from "./pages/Success";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
   return (
     <Router>
+      <ScrollToTop />
       <Switch>
         <Route exact path="/">
           <Home />
