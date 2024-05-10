@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
+import { useParams, useHistory } from "react-router-dom";
 
 const Container = styled.div``;
 
@@ -127,6 +128,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
+  const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -151,6 +153,28 @@ const Product = () => {
   const handleClick = () => {
     dispatch(addProduct({ ...product, quantity, color, size }));
   };
+
+  if (!product) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          gap: "10px",
+        }}
+      >
+        <h2>Product Not Found</h2>
+        <p>The product you are looking for does not exist.</p>
+        <button onClick={() => history.push("/products")}>
+          Go to Products
+        </button>
+      </div>
+    );
+  }
+
   return (
     <Container>
       <Navbar />
