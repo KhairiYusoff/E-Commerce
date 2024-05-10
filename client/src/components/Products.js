@@ -21,6 +21,7 @@ const ErrorMessage = styled.div`
 
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
+  console.log(products);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [error, setError] = useState(null);
 
@@ -78,7 +79,7 @@ const Products = ({ cat, filters, sort }) => {
         filteredProducts.map((item) => <Product item={item} key={item.id} />)
       ) : (
         products
-          .slice(0, 8)
+          .slice(0, 100)
           .map((item) => <Product item={item} key={item.id} />)
       )}
     </Container>

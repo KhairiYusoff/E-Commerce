@@ -75,22 +75,28 @@ router.get("/", async (req, res) => {
   const qCategory = req.query.category;
   try {
     let products;
+    let count;
 
     if (qNew) {
       products = await Product.find().sort({ createdAt: -1 }).limit(1);
+      count = await Product.countDocuments();
     } else if (qCategory) {
       products = await Product.find({
         categories: {
           $in: [qCategory],
         },
       });
+      count = await Product.countDocuments({
+        categories: {
+          $in: [qCategory],
+        },
+      });
     } else {
       products = await Product.find();
+      count = await Product.countDocuments();
     }
 
-    console.log(products);
-
-    res.status(200).json(products);
+    res.status(200).json({ count, products }); // Send count and products as JSON
   } catch (err) {
     res.status(500).json(err);
   }
