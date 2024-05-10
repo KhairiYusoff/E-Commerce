@@ -21,7 +21,6 @@ const ErrorMessage = styled.div`
 
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
-  console.log(products);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [error, setError] = useState(null);
 
@@ -33,7 +32,7 @@ const Products = ({ cat, filters, sort }) => {
             ? `http://localhost:5000/api/products?category=${cat}`
             : "http://localhost:5000/api/products"
         );
-        setProducts(res.data);
+        setProducts(res.data.products);
       } catch (err) {
         console.log(err);
         setError(
@@ -76,11 +75,11 @@ const Products = ({ cat, filters, sort }) => {
       {error ? (
         <ErrorMessage>{error}</ErrorMessage>
       ) : cat ? (
-        filteredProducts.map((item) => <Product item={item} key={item.id} />)
+        filteredProducts.map((item) => <Product item={item} key={item._id} />)
       ) : (
         products
           .slice(0, 100)
-          .map((item) => <Product item={item} key={item.id} />)
+          .map((item) => <Product item={item} key={item._id} />)
       )}
     </Container>
   );
