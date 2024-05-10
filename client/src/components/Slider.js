@@ -1,5 +1,5 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { sliderItems } from "../data";
 import { mobile } from "../responsive";
@@ -81,6 +81,14 @@ const Button = styled.button`
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlideIndex((prevIndex) => (prevIndex + 1) % sliderItems.length);
+    }, 5000); // Change slide every 5 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   const handleClick = (direction) => {
     if (direction === "left") {
       setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
