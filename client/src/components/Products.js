@@ -31,12 +31,30 @@ const ErrorMessage = styled.div`
   padding: 20px;
 `;
 
+const LoadMoreButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+`;
+
+const LoadMoreButton = styled.button`
+  padding: 10px 20px;
+  background-color: teal;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px;
+`;
+
 const Products = ({ cat, filters, sort }) => {
   const isLoading = useSelector((state) => state.loading.isLoading);
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [error, setError] = useState(null);
+  const [visibleProducts, setVisibleProducts] = useState(20);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -86,6 +104,10 @@ const Products = ({ cat, filters, sort }) => {
     }
   }, [sort]);
 
+  const handleLoadMore = () => {
+    setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 20);
+  };
+
   return (
     <Container>
       {error ? (
@@ -95,11 +117,18 @@ const Products = ({ cat, filters, sort }) => {
           <ClipLoader color="teal" size={50} />
         </LoadingContainer>
       ) : cat ? (
-        filteredProducts.map((item) => <Product item={item} key={item._id} />)
+        filteredProducts
+          .slice(0, visibleProducts)
+          .map((item) => <Product item={item} key={item._id} />)
       ) : (
         products
-          .slice(0, 100)
+          .slice(0, visibleProducts)
           .map((item) => <Product item={item} key={item._id} />)
+      )}
+      {visibleProducts < (cat ? filteredProducts.length : products.length) && (
+        <LoadMoreButtonContainer>
+          <LoadMoreButton onClick={handleLoadMore}>Load More</LoadMoreButton>
+        </LoadMoreButtonContainer>
       )}
     </Container>
   );
