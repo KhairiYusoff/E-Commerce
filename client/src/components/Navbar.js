@@ -1,10 +1,14 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import React from "react";
+import {
+  AccountCircle,
+  Search,
+  ShoppingCartOutlined,
+} from "@material-ui/icons";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../redux/apiCalls";
 import { toast } from "react-toastify";
@@ -15,7 +19,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  padding: 10px 20px;
+  padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,14 +71,45 @@ const Right = styled.div`
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
-  margin-left: 25px;
+  margin-right: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
+`;
+
+const UserIcon = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+`;
+
+const DropdownMenu = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+`;
+
+const DropdownItem = styled.div`
+  padding: 8px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f5f5f5;
+    color: teal;
+  }
 `;
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const { currentUser } = useSelector((state) => state.user);
+  const [showDropdown, setShowDropdown] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
   const handleLogout = () => {
     logoutUser(dispatch);
     toast.success("You have been logged out.", {
@@ -86,8 +121,9 @@ const Navbar = () => {
       draggable: true,
       progress: undefined,
     });
+    history.push("/");
   };
-  console.log(currentUser);
+  console.log("currentUser", currentUser);
   return (
     <Container>
       <Wrapper>
@@ -123,9 +159,19 @@ const Navbar = () => {
                   </Badge>
                 </MenuItem>
               </Link>
-              <Link to="/">
-                <MenuItem onClick={handleLogout}>LOGOUT</MenuItem>
-              </Link>
+              <UserIcon
+                onMouseEnter={() => setShowDropdown(true)}
+                onMouseLeave={() => setShowDropdown(false)}
+              >
+                <AccountCircle />
+                {showDropdown && (
+                  <DropdownMenu>
+                    <DropdownItem>{currentUser.username}</DropdownItem>
+                    <DropdownItem>{currentUser.email}</DropdownItem>
+                    <DropdownItem onClick={handleLogout}>Logout</DropdownItem>
+                  </DropdownMenu>
+                )}
+              </UserIcon>
             </>
           )}
         </Right>
