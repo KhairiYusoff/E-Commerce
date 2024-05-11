@@ -9,9 +9,23 @@ import { ClipLoader } from "react-spinners";
 
 const Container = styled.div`
   padding: 20px;
+`;
+
+const SectionContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+`;
+
+const SectionTitle = styled.h2`
+  margin-bottom: 20px;
+  color: #333;
+  width: 100%;
 `;
 
 const LoadingContainer = styled.div`
@@ -110,26 +124,30 @@ const Products = ({ cat, filters, sort }) => {
 
   return (
     <Container>
-      {error ? (
-        <ErrorMessage>{error}</ErrorMessage>
-      ) : isLoading ? (
-        <LoadingContainer>
-          <ClipLoader color="teal" size={50} />
-        </LoadingContainer>
-      ) : cat ? (
-        filteredProducts
-          .slice(0, visibleProducts)
-          .map((item) => <Product item={item} key={item._id} />)
-      ) : (
-        products
-          .slice(0, visibleProducts)
-          .map((item) => <Product item={item} key={item._id} />)
-      )}
-      {visibleProducts < (cat ? filteredProducts.length : products.length) && (
-        <LoadMoreButtonContainer>
-          <LoadMoreButton onClick={handleLoadMore}>Load More</LoadMoreButton>
-        </LoadMoreButtonContainer>
-      )}
+      <SectionContainer>
+        <SectionTitle>Products</SectionTitle>
+        {error ? (
+          <ErrorMessage>{error}</ErrorMessage>
+        ) : isLoading ? (
+          <LoadingContainer>
+            <ClipLoader color="teal" size={50} />
+          </LoadingContainer>
+        ) : cat ? (
+          filteredProducts
+            .slice(0, visibleProducts)
+            .map((item) => <Product item={item} key={item._id} />)
+        ) : (
+          products
+            .slice(0, visibleProducts)
+            .map((item) => <Product item={item} key={item._id} />)
+        )}
+        {visibleProducts <
+          (cat ? filteredProducts.length : products.length) && (
+          <LoadMoreButtonContainer>
+            <LoadMoreButton onClick={handleLoadMore}>Load More</LoadMoreButton>
+          </LoadMoreButtonContainer>
+        )}
+      </SectionContainer>
     </Container>
   );
 };
