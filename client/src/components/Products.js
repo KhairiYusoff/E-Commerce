@@ -3,12 +3,24 @@ import styled from "styled-components";
 import { popularProducts } from "../data";
 import Product from "./Product";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "../redux/loadingRedux";
+import { ClipLoader } from "react-spinners";
 
 const Container = styled.div`
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+`;
+
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  padding: 20px;
 `;
 
 const ErrorMessage = styled.div`
@@ -20,6 +32,8 @@ const ErrorMessage = styled.div`
 `;
 
 const Products = ({ cat, filters, sort }) => {
+  const isLoading = useSelector((state) => state.loading.isLoading);
+  const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -27,12 +41,14 @@ const Products = ({ cat, filters, sort }) => {
   useEffect(() => {
     const getProducts = async () => {
       try {
+        dispatch(setLoading(true));
         const res = await axios.get(
           cat
             ? `http://localhost:5000/api/products?category=${cat}`
             : "http://localhost:5000/api/products"
         );
         setProducts(res.data.products);
+        dispatch(setLoading(false));
       } catch (err) {
         console.log(err);
         setError(
@@ -74,6 +90,10 @@ const Products = ({ cat, filters, sort }) => {
     <Container>
       {error ? (
         <ErrorMessage>{error}</ErrorMessage>
+      ) : isLoading ? (
+        <LoadingContainer>
+          <ClipLoader color="teal" size={50} />
+        </LoadingContainer>
       ) : cat ? (
         filteredProducts.map((item) => <Product item={item} key={item._id} />)
       ) : (
