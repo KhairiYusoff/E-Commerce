@@ -10,12 +10,33 @@ const Container = styled.div`
   ${mobile({ padding: "0px", flexDirection: "column" })}
 `;
 
+const SectionContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+`;
+
+const SectionTitle = styled.h2`
+  margin-bottom: 20px;
+  color: #333;
+  width: 100%;
+`;
+
 const Categories = () => {
   return (
     <Container id="categories-section">
-      {categories.map((item) => (
-        <CategoryItem item={item} key={item.id} />
-      ))}
+      <SectionContainer>
+        <SectionTitle>Popular Products</SectionTitle>
+        {categories.map((item) => (
+          <CategoryItem item={item} key={item.id} />
+        ))}
+      </SectionContainer>
     </Container>
   );
 };
