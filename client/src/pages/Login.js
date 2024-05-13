@@ -4,7 +4,8 @@ import { login } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 const Container = styled.div`
   width: 100vw;
@@ -59,13 +60,6 @@ const Button = styled.button`
   }
 `;
 
-// const Link = styled.a`
-//   margin: 5px 0px;
-//   font-size: 12px;
-//   text-decoration: underline;
-//   cursor: pointer;
-// `;
-
 const Error = styled.span`
   color: red;
 `;
@@ -75,19 +69,35 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
+  const history = useHistory();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    login(dispatch, { username, password });
-    toast.success("Welcome to KhaiR.", {
-      position: "top-left",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    try {
+      const res = await login(dispatch, { username, password });
+      if (res) {
+        toast.success("Welcome to KhaiR.", {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        history.push("/");
+      }
+    } catch (error) {
+      toast.error("Invalid username or password", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
   return (
     <Container>
@@ -104,7 +114,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button onClick={handleLogin} disabled={isFetching}>
-            LOGIN
+            {isFetching ? <ClipLoader /> : "LOGIN"}
           </Button>
           {error && <Error>Something went wrong...</Error>}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
