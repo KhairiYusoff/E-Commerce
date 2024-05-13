@@ -125,7 +125,7 @@ const Products = ({ cat, filters, sort }) => {
   return (
     <Container>
       <SectionContainer>
-        <SectionTitle>Products</SectionTitle>
+        <SectionTitle>All {cat}</SectionTitle>
         {error ? (
           <ErrorMessage>{error}</ErrorMessage>
         ) : isLoading ? (
