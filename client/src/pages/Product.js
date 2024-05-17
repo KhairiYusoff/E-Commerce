@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 
 const Container = styled.div``;
@@ -130,6 +130,8 @@ const Product = () => {
   const [size, setSize] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.user);
+  console.log(currentUser);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -151,7 +153,11 @@ const Product = () => {
   };
 
   const handleClick = () => {
-    dispatch(addProduct({ ...product, quantity, color, size }));
+    if (currentUser) {
+      dispatch(addProduct({ ...product, quantity, color, size }));
+    } else {
+      history.push("/login");
+    }
   };
 
   if (!product) {
