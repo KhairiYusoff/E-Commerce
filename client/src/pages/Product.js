@@ -157,16 +157,21 @@ const Product = () => {
     if (currentUser) {
       dispatch(addProduct({ ...product, quantity, color, size }));
     } else {
-      toast.error("Please login in order to purchase", {
-        position: "top-left",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      history.push("/login");
+      toast.info(
+        "Please login or create an account to complete your purchase",
+        {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
+      setTimeout(() => {
+        history.push("/login");
+      }, 3000);
     }
   };
 
