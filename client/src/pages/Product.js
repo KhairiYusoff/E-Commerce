@@ -11,6 +11,7 @@ import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Container = styled.div``;
 
@@ -156,6 +157,15 @@ const Product = () => {
     if (currentUser) {
       dispatch(addProduct({ ...product, quantity, color, size }));
     } else {
+      toast.error("Please login in order to purchase", {
+        position: "top-left",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       history.push("/login");
     }
   };
